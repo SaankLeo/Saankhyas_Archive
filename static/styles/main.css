@@ -1,0 +1,300 @@
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Fonts ──────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Berkeley+Mono:wght@400;700&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+/* ─── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg: #f9f8f4;
+  --fg: #111;
+  --muted: #666;
+  --border: #e0ddd5;
+  --accent: #c1440e;
+  --link: #111;
+  --link-hover: #c1440e;
+  --mono: 'Berkeley Mono', 'Fira Code', 'Courier New', monospace;
+  --serif: 'Newsreader', Georgia, serif;
+  --max: 640px;
+  --space: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e0d;
+    --fg: #e8e5df;
+    --muted: #888;
+    --border: #2a2925;
+    --accent: #e06235;
+    --link: #e8e5df;
+    --link-hover: #e06235;
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-weight: 300;
+  line-height: 1.7;
+  padding: 4rem var(--space) 6rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Nav ────────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+nav a:hover, nav a.active {
+  color: var(--fg);
+}
+
+nav .site-name {
+  color: var(--fg);
+  margin-right: auto;
+  font-weight: 700;
+}
+
+/* ─── Headings ───────────────────────────────────────────────── */
+h1 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Text ───────────────────────────────────────────────────── */
+p {
+  margin-bottom: 1rem;
+  color: var(--fg);
+}
+
+em { font-style: italic; }
+
+strong { font-weight: 400; color: var(--fg); }
+
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
+}
+
+/* ─── Divider ────────────────────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ─── Sections ───────────────────────────────────────────────── */
+section { margin-bottom: 2.5rem; }
+
+/* ─── Project / Item Card ────────────────────────────────────── */
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.item:last-child { border-bottom: none; }
+
+.item-name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.item-desc {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  grid-column: 1;
+  line-height: 1.5;
+}
+
+.item-meta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  align-self: start;
+  white-space: nowrap;
+}
+
+/* ─── Tag pills ──────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* ─── Skills list ─────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.skill-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+
+.skill-value {
+  color: var(--fg);
+  font-family: var(--serif);
+}
+
+/* ─── Intro block ─────────────────────────────────────────────── */
+.intro {
+  margin-bottom: 3rem;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ─── Now / footer ────────────────────────────────────────────── */
+footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer span, footer a {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+footer a { text-decoration: none; }
+footer a:hover { color: var(--fg); }
+
+/* ─── Post list ───────────────────────────────────────────────── */
+.post-list { list-style: none; }
+.post-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.post-list li:last-child { border-bottom: none; }
+.post-list a {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--fg);
+}
+.post-list a:hover { color: var(--accent); }
+.post-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ─── Post body ───────────────────────────────────────────────── */
+.post-body {
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.post-body h2 { font-size: 1.1rem; margin-top: 2.5rem; }
+.post-body code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+}
+.post-body pre {
+  background: var(--border);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+}
+.post-body pre code { background: none; padding: 0; }
+
+/* ─── Misc ────────────────────────────────────────────────────── */
+.mono { font-family: var(--mono); font-size: 0.82rem; }
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+
+@media (max-width: 500px) {
+  body { padding: 2.5rem 1.1rem 4rem; }
+  h1 { font-size: 1.3rem; }
+  nav { gap: 1rem; }
+}

@@ -1,0 +1,7 @@
+{{define "nav"}}
+<nav>
+  <a class="site-name" href="/">saankhya</a>
+  <a href="/projects.html" {{if eq .PageURL "projects.html"}}class="active"{{end}}>projects</a>
+  <a href="/posts.html" {{if eq .PageURL "posts.html"}}class="active"{{end}}>writing</a>
+</nav>
+{{end}}

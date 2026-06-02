@@ -1,0 +1,7 @@
+{{ define "page"}}
+{{$PageData := index .DeepDataMerge.Templates .PageURL}}
+{{ template "head" .}}
+<body>
+{{$PageData.Body}}
+{{ template "footer" .}}
+{{ end}}
